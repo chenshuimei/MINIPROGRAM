@@ -1,9 +1,3 @@
-/*
- * @Description: 这是***页面
- * @Date: 2021-03-05 09:38:03
- * @Author: shuimei
- * @LastEditTime: 2021-06-02 21:38:38
- */
 // pages/category/category.js
 Page({
 
@@ -18,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //第一次提交
+
   },
 
   /**
