@@ -2,7 +2,7 @@
  * @Description: 这是***页面
  * @Date: 2021-03-05 09:38:03
  * @Author: shuimei
- * @LastEditTime: 2021-07-16 10:35:13
+ * @LastEditTime: 2021-07-16 11:11:29
  */
 // pages/home/home.js
 Page({
@@ -17,7 +17,7 @@ Page({
       { id: 1, name: '小明', age: 12 },
       { id: 2, name: 'ctyyg', age: 22 },
       { id: 3, name: '小花', age: 32 },
-      { id: 4, name: '花花1111', age: 45 },
+      { id: 4, name: '111', age: 45 },
     ],
     counter: 0
   },
