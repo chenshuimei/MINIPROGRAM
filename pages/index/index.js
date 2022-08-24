@@ -1,54 +1,52 @@
-// index.js
-// 获取应用实例
-const app = getApp()
-
+/*
+ * @Description: 这是***页面
+ * @Date: 2021-01-24 10:10:35
+ * @Author: shuimei
+ * @LastEditTime: 2022-06-02 23:32:33
+ */
+import { request } from "../../request/index";
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    swiperList: [] //轮播图数组
   },
-  // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad() {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    //发送请求
+
+    // wx.request({
+    //   url: 'https://csaa.bjbzms.cn/api/h5/advert/list',
+    //   method: "post",
+    //   data: {
+    //     "position": 2,
+    //     "status": 1
+    //   },
+    //   success: (res) => {
+    //     console.log(`获取轮播图数据`, res);
+    //     this.setData({
+    //       swiperList: res.data.data.list
+    //     })
+    //   },
+    // })
+
+    let params = {
+      url: 'https://csaa.bjbzms.cn/api/h5/advert/list',
+      method: "post",
+      data: {
+        "position": 2,
+        "status": 1
+      },
     }
-  },
-  getUserInfo(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+    request(params).then(res => {
+      this.setData({
+        swiperList: res.data.data.list
+      })
     })
-  }
+  },
 })
