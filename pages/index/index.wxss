@@ -5,3 +5,13 @@
 .swiper_index image {
   width: 100%;
 }
+.cate_index {
+  display: flex;
+}
+.cate_index navigator {
+  padding: 20rpx;
+  flex: 1;
+}
+.cate_index navigator image {
+  width: 100%;
+}

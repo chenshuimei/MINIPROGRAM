@@ -2,7 +2,7 @@
  * @Description: 这是***页面
  * @Date: 2021-01-24 10:10:35
  * @Author: shuimei
- * @LastEditTime: 2022-06-02 23:20:24
+ * @LastEditTime: 2022-08-24 17:57:13
 -->
 <view>
   <!-- 搜索框 开始 -->
@@ -20,4 +20,12 @@
   </swiper>
   </view>
   <!-- 轮播图 结束 -->
+
+  <!-- 导航 开始 -->
+  <view class="cate_index">
+    <navigator wx:for="{{catesList}}" wx:key="name">
+      <image mode="widthFix" src="{{item.image_src}}"></image>
+    </navigator>
+  </view>
+  <!-- 导航 结束 -->
 </view>

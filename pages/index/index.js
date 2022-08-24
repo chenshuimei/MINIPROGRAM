@@ -2,7 +2,7 @@
  * @Description: 这是***页面
  * @Date: 2021-01-24 10:10:35
  * @Author: shuimei
- * @LastEditTime: 2022-06-02 23:32:33
+ * @LastEditTime: 2022-08-24 17:51:32
  */
 import { request } from "../../request/index";
 Page({
@@ -11,7 +11,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiperList: [] //轮播图数组
+    swiperList: [], //轮播图数组
+    catesList: [], // 导航分类数组
+    floorList: [], // 楼层数组
   },
 
   /**
@@ -19,7 +21,10 @@ Page({
    */
   onLoad: function (options) {
     //发送请求
-
+    this.getSwiperList()
+    this.getCatesList()
+  },
+  getSwiperList () {
     // wx.request({
     //   url: 'https://csaa.bjbzms.cn/api/h5/advert/list',
     //   method: "post",
@@ -49,4 +54,18 @@ Page({
       })
     })
   },
+
+  getCatesList () {
+
+    let params = {
+      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/catitems',
+      method: "GET",
+    }
+    request(params).then(res => {
+      this.setData({
+        catesList: res.data.message
+      })
+    })
+  }
+
 })

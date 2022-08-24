@@ -17,7 +17,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#eb4450",
-    "navigationBarTitleText": "merryMall优选",
+    "navigationBarTitleText": "优选首页",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
   },
