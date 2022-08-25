@@ -1,2 +1,37 @@
-<!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<!--
+ * @Description: 这是***页面
+ * @Date: 2022-05-24 23:59:30
+ * @Author: shuimei
+ * @LastEditTime: 2022-08-25 17:57:11
+-->
+<view class="category">
+  <!-- 搜索 开始 -->
+  <searchInput></searchInput>
+  <!-- 搜索 结束 -->
+  <view class="category_container">
+    <scroll-view scroll-y class="left_menu"> 
+      <view class="menu_item {{index === currentIndex ? 'active' : ''}}"  
+        wx:for="{{letfMenuList}}" 
+        wx:key="$this" 
+        bindtap="handleItemTap" 
+        data-index="{{index}}">
+        {{item}}
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y class="right_content">
+      <view class="content_group" wx:for="{{rightContent}}" wx:for-index="index1" wx:for-item="item1">
+        <view class="content_title">
+          <view class="del">/</view>
+          <view class="title">{{item1.cat_name}}</view>
+          <view class="del">/</view>
+        </view>
+        <view class="content_list">
+          <navigator wx:for="{{item1.children}}" wx:for-index="index2" wx:for-item="item2" wx:key="cat_id">
+             <image mode="widthFix" src="{{item2.cat_icon}}"></image>
+             <view class="name">{{item2.cat_name}}</view>
+          </navigator>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
