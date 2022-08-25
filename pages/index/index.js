@@ -2,7 +2,7 @@
  * @Description: 这是***页面
  * @Date: 2021-01-24 10:10:35
  * @Author: shuimei
- * @LastEditTime: 2022-08-24 17:51:32
+ * @LastEditTime: 2022-08-24 18:10:04
  */
 import { request } from "../../request/index";
 Page({
@@ -23,6 +23,7 @@ Page({
     //发送请求
     this.getSwiperList()
     this.getCatesList()
+    this.getFloorList()
   },
   getSwiperList () {
     // wx.request({
@@ -64,6 +65,18 @@ Page({
     request(params).then(res => {
       this.setData({
         catesList: res.data.message
+      })
+    })
+  },
+
+  getFloorList () {
+    let params = {
+      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/floordata',
+      method: "GET",
+    }
+    request(params).then(res => {
+      this.setData({
+        floorList: res.data.message
       })
     })
   }
