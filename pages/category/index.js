@@ -2,7 +2,7 @@
  * @Description: 这是分类页面
  * @Date: 2022-05-24 23:59:30
  * @Author: shuimei
- * @LastEditTime: 2022-08-25 18:04:13
+ * @LastEditTime: 2022-08-25 18:12:08
  */
 import { request } from "../../request/index";
 Page({
@@ -38,8 +38,8 @@ Page({
   },
   // 左侧菜单点击事件
   handleItemTap (e) {
-    console.log(`e`, e);
     const { index } = e.currentTarget.dataset
-    this.setData({ currentIndex: index })
+    let rightContent = this.categoryList[index].children
+    this.setData({ currentIndex: index, rightContent })
   }
 })
