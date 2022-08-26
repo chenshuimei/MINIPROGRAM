@@ -2,9 +2,10 @@
  * @Description: 这是分类页面
  * @Date: 2022-05-24 23:59:30
  * @Author: shuimei
- * @LastEditTime: 2022-08-26 14:47:08
+ * @LastEditTime: 2022-08-26 15:13:46
  */
 import { request } from "../../request/index";
+import regeneratorRuntime from '../../lib/runtime/runtime';
 Page({
 
   /**
@@ -43,16 +44,27 @@ Page({
     }
   },
   // 获取分类列表
-  getCategoryList () {
-    request({ url: '/categories' }).then(res => {
-      this.categoryList = res.data.message;
-      // 设置缓存
-      wx.setStorageSync('cates', { time: Date.now(), data: this.categoryList })
+  async getCategoryList () {
+    // request({ url: '/categories' }).then(res => {
+    //   this.categoryList = res.data.message;
+    //   // 设置缓存
+    //   wx.setStorageSync('cates', { time: Date.now(), data: this.categoryList })
 
-      let letfMenuList = this.categoryList.map(item => item.cat_name)
-      let rightContent = this.categoryList[0].children
-      this.setData({ letfMenuList, rightContent })
-    })
+    //   let letfMenuList = this.categoryList.map(item => item.cat_name)
+    //   let rightContent = this.categoryList[0].children
+    //   this.setData({ letfMenuList, rightContent })
+    // })
+
+    // 使用async await方法
+    const res = await request({ url: '/categories' });
+    this.categoryList = res;
+    // 设置缓存
+    wx.setStorageSync('cates', { time: Date.now(), data: this.categoryList })
+
+    let letfMenuList = this.categoryList.map(item => item.cat_name)
+    let rightContent = this.categoryList[0].children
+    this.setData({ letfMenuList, rightContent })
+
   },
   // 左侧菜单点击事件
   handleItemTap (e) {

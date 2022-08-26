@@ -2,7 +2,7 @@
  * @Description: 这是***页面
  * @Date: 2021-01-24 10:10:35
  * @Author: shuimei
- * @LastEditTime: 2022-08-26 14:46:57
+ * @LastEditTime: 2022-08-26 15:14:12
  */
 import { request } from "../../request/index";
 Page({
@@ -32,7 +32,7 @@ Page({
     }
     request(params).then(res => {
       this.setData({
-        swiperList: res.data.message
+        swiperList: res
       })
     })
   },
@@ -45,7 +45,7 @@ Page({
     }
     request(params).then(res => {
       this.setData({
-        catesList: res.data.message
+        catesList: res
       })
     })
   },
@@ -57,7 +57,7 @@ Page({
     }
     request(params).then(res => {
       this.setData({
-        floorList: res.data.message
+        floorList: res
       })
     })
   }
