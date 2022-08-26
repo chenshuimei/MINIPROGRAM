@@ -1,2 +1,55 @@
-<!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+<!--
+ * @Description: 这是商品列表页面
+ * @Date: 2022-05-24 23:59:30
+ * @Author: shuimei
+ * @LastEditTime: 2022-08-26 17:16:16
+-->
+<searchInput></searchInput>
+<tabs tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange">
+    <block wx:if="{{tabs[0].isActive}}">
+      <view class="first_tab">
+        <navigator class="goods-item">
+          <view class="left">
+            <image mode="widthFix" src="https://times-dev-backend.oss-cn-shenzhen.aliyuncs.com/null/null/4212358321661_%E5%8D%88%E7%9D%A1%E6%9E%95.png"></image>
+          </view>
+          <view class="right">
+            <view class="title">午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色</view>
+            <view class="price">￥6999</view>
+          </view>
+        </navigator>
+        <navigator class="goods-item">
+          <view class="left">
+            <image mode="widthFix" src="https://times-dev-backend.oss-cn-shenzhen.aliyuncs.com/null/null/4212358321661_%E5%8D%88%E7%9D%A1%E6%9E%95.png"></image>
+          </view>
+          <view class="right">
+            <view class="title">午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色</view>
+            <view class="price">￥6999</view>
+          </view>
+        </navigator>
+        <navigator class="goods-item">
+          <view class="left">
+            <image mode="widthFix" src="https://times-dev-backend.oss-cn-shenzhen.aliyuncs.com/null/null/4212358321661_%E5%8D%88%E7%9D%A1%E6%9E%95.png"></image>
+          </view>
+          <view class="right">
+            <view class="title">午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色</view>
+            <view class="price">￥6999</view>
+          </view>
+        </navigator>
+        <navigator class="goods-item">
+          <view class="left">
+            <image mode="widthFix" src="https://times-dev-backend.oss-cn-shenzhen.aliyuncs.com/null/null/4212358321661_%E5%8D%88%E7%9D%A1%E6%9E%95.png"></image>
+          </view>
+          <view class="right">
+            <view class="title">午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色午睡枕午睡枕黑色</view>
+            <view class="price">￥6999</view>
+          </view>
+        </navigator>
+      </view>
+    </block> 
+    <block wx:if="{{tabs[1].isActive}}">
+      1
+    </block> 
+    <block wx:if="{{tabs[2].isActive}}">
+      2
+    </block> 
+</tabs>

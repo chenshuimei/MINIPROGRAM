@@ -2,7 +2,7 @@
  * @Description: 这是***页面
  * @Date: 2022-05-24 23:59:30
  * @Author: shuimei
- * @LastEditTime: 2022-08-26 14:24:50
+ * @LastEditTime: 2022-08-26 15:25:33
 -->
 <view class="category">
   <!-- 搜索 开始 -->
@@ -26,7 +26,12 @@
           <view class="del">/</view>
         </view>
         <view class="content_list">
-          <navigator wx:for="{{item1.children}}" wx:for-index="index2" wx:for-item="item2" wx:key="cat_id">
+          <navigator 
+            wx:for="{{item1.children}}" 
+            wx:for-index="index2" 
+            wx:for-item="item2" 
+            wx:key="cat_id" 
+            url="/pages/goods_list/index?cid={{item2.cat_id}}">
              <image mode="widthFix" src="{{item2.cat_icon}}"></image>
              <view class="name">{{item2.cat_name}}</view>
           </navigator>

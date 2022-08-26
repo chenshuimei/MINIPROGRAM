@@ -1,0 +1,37 @@
+.first_tab {
+  .goods-item {
+    display: flex;
+    padding: 30rpx 0 ;
+    &:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+
+    }
+  .left {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    image {
+      width: 70%;
+    }
+  }
+  .right {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-right: 30rpx;
+    .title {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp: 2;
+    }
+    .price {
+    color: var(--themColor);
+    font-size: 32rpx;
+    }
+  }
+  }
+  
+}
