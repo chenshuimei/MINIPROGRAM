@@ -2,7 +2,7 @@
  * @Description: 这是分类页面
  * @Date: 2022-05-24 23:59:30
  * @Author: shuimei
- * @LastEditTime: 2022-08-25 18:12:08
+ * @LastEditTime: 2022-08-26 10:49:40
  */
 import { request } from "../../request/index";
 Page({
@@ -23,14 +23,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCategoryList()
+    // 获取缓存
+    const cates = wx.getStorageSync('cates')
+    if (!cates) {
+      this.getCategoryList()
+    } else {
+      // 判断是否过期，过期的话重新请求接口
+      if (Date.now() - cates.time > 1000 * 10) {
+        console.log(`时间过期`);
+        this.getCategoryList()
+      } else {
+        console.log('时间没过期');
+        this.categoryList = cates.data
+        let letfMenuList = this.categoryList.map(item => item.cat_name)
+        let rightContent = this.categoryList[0].children
+        this.setData({ letfMenuList, rightContent })
+      }
+    }
   },
   // 获取分类列表
   getCategoryList () {
     request({ url: 'https://api-hmugo-web.itheima.net/api/public/v1/categories' }).then(res => {
-      console.log(`res`, res);
-      // this.setData({ categoryList: res.data.message })
       this.categoryList = res.data.message;
+      // 设置缓存
+      wx.setStorageSync('cates', { time: Date.now(), data: this.categoryList })
+
       let letfMenuList = this.categoryList.map(item => item.cat_name)
       let rightContent = this.categoryList[0].children
       this.setData({ letfMenuList, rightContent })
