@@ -2,7 +2,7 @@
  * @Description: 这是分类页面
  * @Date: 2022-05-24 23:59:30
  * @Author: shuimei
- * @LastEditTime: 2022-08-26 14:24:23
+ * @LastEditTime: 2022-08-26 14:47:08
  */
 import { request } from "../../request/index";
 Page({
@@ -44,7 +44,7 @@ Page({
   },
   // 获取分类列表
   getCategoryList () {
-    request({ url: 'https://api-hmugo-web.itheima.net/api/public/v1/categories' }).then(res => {
+    request({ url: '/categories' }).then(res => {
       this.categoryList = res.data.message;
       // 设置缓存
       wx.setStorageSync('cates', { time: Date.now(), data: this.categoryList })

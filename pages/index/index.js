@@ -2,7 +2,7 @@
  * @Description: 这是***页面
  * @Date: 2021-01-24 10:10:35
  * @Author: shuimei
- * @LastEditTime: 2022-08-24 18:10:04
+ * @LastEditTime: 2022-08-26 14:46:57
  */
 import { request } from "../../request/index";
 Page({
@@ -26,32 +26,13 @@ Page({
     this.getFloorList()
   },
   getSwiperList () {
-    // wx.request({
-    //   url: 'https://csaa.bjbzms.cn/api/h5/advert/list',
-    //   method: "post",
-    //   data: {
-    //     "position": 2,
-    //     "status": 1
-    //   },
-    //   success: (res) => {
-    //     console.log(`获取轮播图数据`, res);
-    //     this.setData({
-    //       swiperList: res.data.data.list
-    //     })
-    //   },
-    // })
-
     let params = {
-      url: 'https://csaa.bjbzms.cn/api/h5/advert/list',
-      method: "post",
-      data: {
-        "position": 2,
-        "status": 1
-      },
+      url: '/home/swiperdata',
+      method: "get",
     }
     request(params).then(res => {
       this.setData({
-        swiperList: res.data.data.list
+        swiperList: res.data.message
       })
     })
   },
@@ -59,7 +40,7 @@ Page({
   getCatesList () {
 
     let params = {
-      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/catitems',
+      url: '/home/catitems',
       method: "GET",
     }
     request(params).then(res => {
@@ -71,7 +52,7 @@ Page({
 
   getFloorList () {
     let params = {
-      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/floordata',
+      url: '/home/floordata',
       method: "GET",
     }
     request(params).then(res => {

@@ -2,7 +2,7 @@
  * @Description: 这是***页面
  * @Date: 2021-01-24 10:10:35
  * @Author: shuimei
- * @LastEditTime: 2022-08-25 11:08:30
+ * @LastEditTime: 2022-08-26 14:44:34
 -->
 <view>
   <!-- 搜索框 开始 -->
@@ -14,7 +14,7 @@
   <swiper class="swiper_index">
     <swiper-item wx:for="{{swiperList}}" wx:key="item.itemId">
       <navigator>
-        <image mode="widthFix" src="{{item.imgUrl}}"></image>
+        <image mode="widthFix" src="{{item.image_src}}"></image>
       </navigator>
     </swiper-item>
   </swiper>
