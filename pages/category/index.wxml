@@ -2,7 +2,7 @@
  * @Description: 这是***页面
  * @Date: 2022-05-24 23:59:30
  * @Author: shuimei
- * @LastEditTime: 2022-08-25 17:57:11
+ * @LastEditTime: 2022-08-26 14:24:50
 -->
 <view class="category">
   <!-- 搜索 开始 -->
@@ -18,7 +18,7 @@
         {{item}}
       </view>
     </scroll-view>
-    <scroll-view scroll-y class="right_content">
+    <scroll-view scroll-y scroll-top="{{scrollTop}}" class="right_content">
       <view class="content_group" wx:for="{{rightContent}}" wx:for-index="index1" wx:for-item="item1">
         <view class="content_title">
           <view class="del">/</view>

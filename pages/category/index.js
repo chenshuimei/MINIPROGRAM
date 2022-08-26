@@ -2,7 +2,7 @@
  * @Description: 这是分类页面
  * @Date: 2022-05-24 23:59:30
  * @Author: shuimei
- * @LastEditTime: 2022-08-26 10:49:40
+ * @LastEditTime: 2022-08-26 14:24:23
  */
 import { request } from "../../request/index";
 Page({
@@ -14,6 +14,7 @@ Page({
     letfMenuList: [], // 左侧菜单数据
     rightContent: [], // 右侧商品数据
     currentIndex: 0, // 当前被选中菜单索引
+    scrollTop: 0
   },
 
   // 全部分类数据
@@ -57,6 +58,6 @@ Page({
   handleItemTap (e) {
     const { index } = e.currentTarget.dataset
     let rightContent = this.categoryList[index].children
-    this.setData({ currentIndex: index, rightContent })
+    this.setData({ currentIndex: index, rightContent, scrollTop: 0 })
   }
 })
